@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Giày Nike</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    
+</head>
+<body>
+    <div class="nav container">
+        <!--Logo-->
+        <a href="index.html" class="logo"><i class="bx bx-home"></i>ShoesNIKE</a>
+        <!--Log In Button-->
+        <a href="signup.html" class="btn">Sign Up</a>
+      </div>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Login</button>
+        </form>
+        <p id="loginError" style="color:red; display:none;">Invalid credentials, please try again.</p>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // For demonstration purposes, the credentials are hardcoded
+            if (username === 'user' && password === 'password') {
+                sessionStorage.setItem('loggedIn', 'true');
+                window.location.href = 'index.html';
+            } else {
+                document.getElementById('loginError').style.display = 'block';
+            }
+        });
+
+    
+    </script>
+      <!-- Footer -->
+      <section class="footer">
+        <div class="footer-container container">
+          <div class="footer-box">
+            <h3>Links</h3>
+            <a href="#">Aaaaaaa</a>
+            <a href="#">Bbbbbbb</a>
+            <a href="#">Ccccccc</a>
+          </div>
+          <div class="footer-box">
+            <h3>Locations</h3>
+            <a href="#">Hà Nội</a>
+            <a href="#">Đà Nẵng</a>
+            <a href="#">TP. Hồ Chí Minh</a>
+          </div>
+          <div class="footer-box">
+            <h3>Contact</h3>
+            <a href="#">012.345.6789</a>
+            <a href="#">yourmail@gmail.com</a>
+            <div class="social">
+              <a href="#"><i class="bx bxl-facebook"></i></a>
+              <a href="#"><i class="bx bxl-twitter"></i></a>
+              <a href="#"><i class="bx bxl-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Copyright -->
+      <div class="copyright">
+        <p>&#169; CarpoolVenom All Rights Reserved</p>
+      </div>
+  
+      <script>
+        document
+          .getElementById("loginForm")
+          .addEventListener("submit", function (event) {
+            event.preventDefault();
+            // Giả sử đăng nhập thành công
+            sessionStorage.setItem("loggedIn", "true");
+            window.location.href = "index.html";
+          });
+      </script>
+</body>
+</html>

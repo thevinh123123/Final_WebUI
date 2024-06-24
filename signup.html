@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Giày Nike</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+</head>
+<body>
+    <header>
+        <div class="nav container">
+          <!--Logo-->
+          <a href="index.html" class="logo"><i class="bx bx-home"></i>ShoesNIKE</a>
+  
+          <!--Sign Up Button-->
+          <a href="login.html" class="btn">Login</a>
+        </div>
+      </header>
+    <div class="signup-container">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+            
+            <button type="submit">Sign Up</button>
+        </form>
+        <p id="signupError" style="color:red; display:none;">Passwords do not match, please try again.</p>
+    </div>
+
+    <script>
+        function handleAuth() {
+            if (sessionStorage.getItem("loggedIn") === "true") {
+                // Log out logic
+                sessionStorage.removeItem("loggedIn");
+                document.getElementById("loginBtn").textContent = "Log In";
+                document.getElementById("signupBtn").style.display = "inline-block";
+            } else {
+                // Log in logic
+                window.location.href = "login.html";
+            }
+        }
+    
+        // Check login status on page load
+        document.addEventListener("DOMContentLoaded", function () {
+            const loginBtn = document.getElementById("loginBtn");
+            const signupBtn = document.getElementById("signupBtn");
+    
+            if (sessionStorage.getItem("loggedIn") === "true") {
+                loginBtn.textContent = "Log Out";
+                signupBtn.style.display = "none";
+                loginBtn.addEventListener('click', handleAuth);
+            } else {
+                loginBtn.textContent = "Log In";
+                signupBtn.style.display = "inline-block";
+            }
+        });
+    </script>
+</body>
+</html>
